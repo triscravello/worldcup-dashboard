@@ -54,11 +54,11 @@ export async function POST(request: NextRequest) {
         const insight = response.output?.message?.content?.[0]?.text || "No insight generated";
 
         return NextResponse.json({ insight });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Bedrock error:", error);
         return NextResponse.json(
-            { error: error?.message || "Failed to generate insight", },
-            { status: error?.$metadata?.httpStatusCode ?? 500 }
+            { error: error instanceof Error ? error.message : "Failed to generate insight", },
+            { status: 500 }
         );
     }
 }
