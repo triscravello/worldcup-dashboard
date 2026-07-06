@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
 
         // Send the prompt to Claude Sonnet 5 via Bedrock
         const command = new InvokeModelCommand({
-            modelId: "us.anthropic.claude-sonnet-5-v1-0",
+            modelId: "us.anthropic.claude-sonnet-4-20250514-v1:0",
             contentType: "application/json",
             accept: "application/json",
             body: JSON.stringify({
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     } catch (error) {
         console.error("Bedrock error:", error);
         return NextResponse.json(
-            { error: "Failed to generate insight" },
+            { error: error instanceof Error ? error.message : "Failed to generate insight", },
             { status: 500 }
         );
     }
