@@ -1,4 +1,5 @@
 import type { Match } from "@/lib/api";
+import { MatchInsight } from "./MatchInsight";
 
 function getStatusBadge(match: Match) {
   if (match.finished === "TRUE") {
@@ -39,6 +40,11 @@ export function MatchCard({ match }: { match: Match }) {
           {awayName}
         </span>
       </div>
+      {match.finished === "TRUE" && (
+        <div className="mt-4">
+          <MatchInsight matchId={match.id} />
+        </div>
+      )}
     </div>
   );
 }
