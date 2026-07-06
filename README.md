@@ -95,4 +95,14 @@ Required GitHub repository secrets:
 
 ## Screenshots
 
-<!-- Add screenshots of your live dashboard here -->
+### Home Dashboard
+![Home Dashboard](./screenshots/Home.png)
+
+### Match Schedule
+![Match Schedule](./screenshots/Matches.png)
+
+### Group Standings
+![Group Standings](./screenshots/Groups.png)
+
+### AI Match Insights
+![AI Match Insights](./screenshots/HomewithAIinsights.png)
