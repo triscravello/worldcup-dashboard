@@ -83,8 +83,14 @@ export async function getMatches(): Promise<Match []> {
 }
 
 export async function getMatch(id: string): Promise<Match> {
-    const data = await fetchAPI<{ game: Match }>(`/get/game/${id}`);
-    return data.game;
+    const matches = await getMatches();
+    const match = matches.find((m) => m.id === id);
+
+    if (!match) {
+        throw new Error(`Match not found: ${id}`);
+    }
+
+    return match;
 }
 
 export async function getGroups(): Promise<Group[]> {
