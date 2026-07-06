@@ -47,12 +47,16 @@ export function MatchInsight({ matchId }: { matchId: string }) {
 
   // Default state: show the request button
   return (
-    <button
-      onClick={fetchInsight}
-      disabled={loading}
-      className="mt-3 text-xs px-3 py-1 bg-purple-700 rounded hover:bg-purple-600 disabled:opacity-50 transition"
-    >
-      {loading ? "Generating..." : "Get AI Insight"}
-    </button>
+    <div className="mt-3">
+        <button
+            onClick={fetchInsight}
+            disabled={loading}
+            className="mt-3 text-xs px-3 py-1 bg-purple-700 rounded hover:bg-purple-600 disabled:opacity-50 transition"
+        >
+            {loading ? "Generating..." : "Get AI Insight"}
+        </button>
+        
+        {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
+    </div>
   );
 }
