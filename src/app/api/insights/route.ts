@@ -36,9 +36,9 @@ export async function POST(request: NextRequest) {
         // Build a tactical analysis prompt with match context
         const prompt = `You are a football tactical analyst. Provide a brief, insightful tactical summary (3-4 sentences) for this completed FIFA World Cup 2026 match:\n\n${match.home_team_name_en} ${match.home_score} - ${match.away_score} ${match.away_team_name_en}\nStage: ${match.type === "group" ? `Group ${match.group}` : match.group}\nGoal scorers - Home: ${match.home_scorers !== "null" ? match.home_scorers : "None"}, Away: ${match.away_scorers !== "null" ? match.away_scorers : "None"}\n\nFocus on what the scoreline tells us about tactics, key moments, and implications for the tournament.`;
 
-        // Send the prompt to Claude Sonnet 5 via Bedrock
+        // Send the prompt to Claude Haiku 4.5 (Active) via Bedrock
         const command = new ConverseCommand({
-            modelId: "us.anthropic.claude-sonnet-5",
+            modelId: "us.anthropic.claude-haiku-4-5-20251001-v1:0",
             messages: [
                 {
                     role: "user",
